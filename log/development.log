@@ -52,3 +52,71 @@ Migrating to CreateProfessionals (20170124234219)
   [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Load (9.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (943.6ms)[0m  [1m[32mINSERT INTO "professionals" ("name", "gender", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Angelina Jolie"], ["gender", "female"], ["type", "Actor"], ["created_at", 2017-01-26 21:17:45 UTC], ["updated_at", 2017-01-26 21:17:45 UTC]]
+  [1m[35m (78.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (7.8ms)[0m  [1m[32mINSERT INTO "professionals" ("name", "gender", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Will Smith"], ["gender", "male"], ["type", "Actor"], ["created_at", 2017-01-26 21:19:13 UTC], ["updated_at", 2017-01-26 21:19:13 UTC]]
+  [1m[35m (26.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (23.9ms)[0m  [1m[32mINSERT INTO "professionals" ("name", "gender", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Quentin Tarantino"], ["gender", "male"], ["type", "Director"], ["created_at", 2017-01-26 21:19:38 UTC], ["updated_at", 2017-01-26 21:19:38 UTC]]
+  [1m[35m (24.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "professionals" WHERE "professionals"."type" IN ('Actor')[0m
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "professionals" WHERE "professionals"."type" IN ('Director')[0m
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "professionals"[0m
+  [1m[36mProfessional Load (5.8ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."gender" = ?[0m  [["gender", "male"]]
+  [1m[36mActor Load (4.9ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."type" IN ('Actor') AND "professionals"."gender" = ?[0m  [["gender", "male"]]
+  [1m[36mActiveRecord::SchemaMigration Load (4.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (3.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[35m (29.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (38.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMovies (20170124223332)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "release_date" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170124223332"]]
+  [1m[35m (49.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProfessionals (20170124234219)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "professionals" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "birthdate" datetime, "gender" varchar, "country" varchar, "type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (20.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170124234219"]]
+  [1m[35m (44.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (23.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-01-26 21:33:54 UTC], ["updated_at", 2017-01-26 21:33:54 UTC]]
+  [1m[35m (40.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (7.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (522.0ms)[0m  [1m[32mINSERT INTO "professionals" ("name", "birthdate", "gender", "country", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Angelina Jolie"], ["birthdate", 1975-06-04 00:00:00 UTC], ["gender", "female"], ["country", "US"], ["type", "Actor"], ["created_at", 2017-01-26 21:33:54 UTC], ["updated_at", 2017-01-26 21:33:54 UTC]]
+  [1m[35m (49.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (12.6ms)[0m  [1m[32mINSERT INTO "professionals" ("name", "birthdate", "gender", "country", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Will Smith"], ["birthdate", 1968-09-25 00:00:00 UTC], ["gender", "male"], ["country", "US"], ["type", "Actor"], ["created_at", 2017-01-26 21:33:54 UTC], ["updated_at", 2017-01-26 21:33:54 UTC]]
+  [1m[35m (65.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (6.3ms)[0m  [1m[32mINSERT INTO "professionals" ("name", "birthdate", "gender", "country", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Margot Robbie"], ["birthdate", 1990-07-02 00:00:00 UTC], ["gender", "female"], ["country", "US"], ["type", "Actor"], ["created_at", 2017-01-26 21:33:54 UTC], ["updated_at", 2017-01-26 21:33:54 UTC]]
+  [1m[35m (44.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (5.8ms)[0m  [1m[32mINSERT INTO "professionals" ("name", "birthdate", "gender", "country", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Quentin Tarantino"], ["birthdate", 1963-03-27 00:00:00 UTC], ["gender", "male"], ["country", "US"], ["type", "Director"], ["created_at", 2017-01-26 21:33:54 UTC], ["updated_at", 2017-01-26 21:33:54 UTC]]
+  [1m[35m (60.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (6.1ms)[0m  [1m[32mINSERT INTO "professionals" ("name", "birthdate", "gender", "country", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mel Gibson"], ["birthdate", 1956-01-03 00:00:00 UTC], ["gender", "male"], ["country", "US"], ["type", "Director"], ["created_at", 2017-01-26 21:33:55 UTC], ["updated_at", 2017-01-26 21:33:55 UTC]]
+  [1m[35m (46.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (6.9ms)[0m  [1m[32mINSERT INTO "movies" ("title", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Alladin"], ["release_date", 1992-11-25 00:00:00 UTC], ["created_at", 2017-01-26 21:33:55 UTC], ["updated_at", 2017-01-26 21:33:55 UTC]]
+  [1m[35m (49.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (7.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "When Harry Met Sally"], ["release_date", 1989-07-21 00:00:00 UTC], ["created_at", 2017-01-26 21:33:55 UTC], ["updated_at", 2017-01-26 21:33:55 UTC]]
+  [1m[35m (49.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (19.6ms)[0m  [1m[32mINSERT INTO "movies" ("title", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Help"], ["release_date", 2011-08-10 00:00:00 UTC], ["created_at", 2017-01-26 21:33:55 UTC], ["updated_at", 2017-01-26 21:33:55 UTC]]
+  [1m[35m (70.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (5.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Raiders of the Lost Ark"], ["release_date", 1981-06-12 00:00:00 UTC], ["created_at", 2017-01-26 21:33:55 UTC], ["updated_at", 2017-01-26 21:33:55 UTC]]
+  [1m[35m (60.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "professionals" WHERE "professionals"."type" IN ('Actor')[0m
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "movies"[0m
