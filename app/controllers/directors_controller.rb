@@ -4,6 +4,7 @@ class DirectorsController < ApplicationController
   # GET /directors
   # GET /directors.json
   def index
+  
     @directors = Director.all
   end
 
